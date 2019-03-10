@@ -1,0 +1,52 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "vehicle",
+            "otherEntityName": "vehicle",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "owner"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "middleName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobileNum",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "alterNateMobileNo",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "orgEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "personalEmailOne",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "personalEmailTwo",
+            "fieldType": "String"
+        }
+    ],
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "owner",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

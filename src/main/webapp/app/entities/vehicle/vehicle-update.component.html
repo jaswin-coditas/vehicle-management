@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-vehicle-heading" jhiTranslate="vehicleManagementApp.vehicle.home.createOrEditLabel">Create or edit a Vehicle</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!vehicle.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="vehicle.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vehicleManagementApp.vehicle.vehicleNum" for="field_vehicleNum">Vehicle Num</label>
+                    <input type="text" class="form-control" name="vehicleNum" id="field_vehicleNum"
+                        [(ngModel)]="vehicle.vehicleNum" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vehicleManagementApp.vehicle.vehicleType" for="field_vehicleType">Vehicle Type</label>
+                    <input type="text" class="form-control" name="vehicleType" id="field_vehicleType"
+                        [(ngModel)]="vehicle.vehicleType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vehicleManagementApp.vehicle.brand" for="field_brand">Brand</label>
+                    <input type="text" class="form-control" name="brand" id="field_brand"
+                        [(ngModel)]="vehicle.brand" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vehicleManagementApp.vehicle.owner" for="field_owner">Owner</label>
+                    <select class="form-control" id="field_owner" name="owner" [(ngModel)]="vehicle.owner" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ownerOption.id === vehicle.owner?.id ? vehicle.owner : ownerOption" *ngFor="let ownerOption of owners; trackBy: trackOwnerById">{{ownerOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

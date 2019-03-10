@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-owner-heading" jhiTranslate="vehicleManagementApp.owner.home.createOrEditLabel">Create or edit a Owner</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!owner.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="owner.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vehicleManagementApp.owner.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                        [(ngModel)]="owner.firstName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vehicleManagementApp.owner.middleName" for="field_middleName">Middle Name</label>
+                    <input type="text" class="form-control" name="middleName" id="field_middleName"
+                        [(ngModel)]="owner.middleName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vehicleManagementApp.owner.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                        [(ngModel)]="owner.lastName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vehicleManagementApp.owner.mobileNum" for="field_mobileNum">Mobile Num</label>
+                    <input type="number" class="form-control" name="mobileNum" id="field_mobileNum"
+                        [(ngModel)]="owner.mobileNum" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vehicleManagementApp.owner.alterNateMobileNo" for="field_alterNateMobileNo">Alter Nate Mobile No</label>
+                    <input type="number" class="form-control" name="alterNateMobileNo" id="field_alterNateMobileNo"
+                        [(ngModel)]="owner.alterNateMobileNo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vehicleManagementApp.owner.orgEmail" for="field_orgEmail">Org Email</label>
+                    <input type="text" class="form-control" name="orgEmail" id="field_orgEmail"
+                        [(ngModel)]="owner.orgEmail" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vehicleManagementApp.owner.personalEmailOne" for="field_personalEmailOne">Personal Email One</label>
+                    <input type="text" class="form-control" name="personalEmailOne" id="field_personalEmailOne"
+                        [(ngModel)]="owner.personalEmailOne" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vehicleManagementApp.owner.personalEmailTwo" for="field_personalEmailTwo">Personal Email Two</label>
+                    <input type="text" class="form-control" name="personalEmailTwo" id="field_personalEmailTwo"
+                        [(ngModel)]="owner.personalEmailTwo" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="owner">
+            <h2><span jhiTranslate="vehicleManagementApp.owner.detail.title">Owner</span> {{owner.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="vehicleManagementApp.owner.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{owner.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="vehicleManagementApp.owner.middleName">Middle Name</span></dt>
+                <dd>
+                    <span>{{owner.middleName}}</span>
+                </dd>
+                <dt><span jhiTranslate="vehicleManagementApp.owner.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{owner.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="vehicleManagementApp.owner.mobileNum">Mobile Num</span></dt>
+                <dd>
+                    <span>{{owner.mobileNum}}</span>
+                </dd>
+                <dt><span jhiTranslate="vehicleManagementApp.owner.alterNateMobileNo">Alter Nate Mobile No</span></dt>
+                <dd>
+                    <span>{{owner.alterNateMobileNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="vehicleManagementApp.owner.orgEmail">Org Email</span></dt>
+                <dd>
+                    <span>{{owner.orgEmail}}</span>
+                </dd>
+                <dt><span jhiTranslate="vehicleManagementApp.owner.personalEmailOne">Personal Email One</span></dt>
+                <dd>
+                    <span>{{owner.personalEmailOne}}</span>
+                </dd>
+                <dt><span jhiTranslate="vehicleManagementApp.owner.personalEmailTwo">Personal Email Two</span></dt>
+                <dd>
+                    <span>{{owner.personalEmailTwo}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/owner', owner.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

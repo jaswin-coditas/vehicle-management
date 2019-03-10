@@ -1,0 +1,30 @@
+
+{
+    "vehicleManagementApp": {
+        "owner" : {
+            "home": {
+                "title": "Owners",
+                "createLabel": "Créer un nouveau Owner",
+                "createOrEditLabel": "Créer ou éditer un Owner"
+            },
+            "created": "Un nouveau Owner a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Owner avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Owner avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Owner {{ id }} ?"
+            },
+            "detail": {
+                "title": "Owner"
+            },
+            "firstName": "First Name",
+            "middleName": "Middle Name",
+            "lastName": "Last Name",
+            "mobileNum": "Mobile Num",
+            "alterNateMobileNo": "Alter Nate Mobile No",
+            "orgEmail": "Org Email",
+            "personalEmailOne": "Personal Email One",
+            "personalEmailTwo": "Personal Email Two",
+            "vehicle": "Vehicle"
+        }
+    }
+}
