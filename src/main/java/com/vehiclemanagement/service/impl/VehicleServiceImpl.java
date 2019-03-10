@@ -1,6 +1,7 @@
 package com.vehiclemanagement.service.impl;
 
 import com.vehiclemanagement.constants.GeneralConstants;
+import com.vehiclemanagement.domain.Owner;
 import com.vehiclemanagement.service.VehicleService;
 import com.vehiclemanagement.domain.Vehicle;
 import com.vehiclemanagement.repository.VehicleRepository;
@@ -75,6 +76,10 @@ public class VehicleServiceImpl implements VehicleService {
         return vehicleRepository.findAll(pageable);
     }
 
+    public Page<Vehicle> getVehiclesByOwner(Pageable pageable, Owner owner) {
+        log.debug("Request to get all Vehicles");
+        return vehicleRepository.findByOwner(pageable,owner);
+    }
 
     /**
      * Get one vehicle by id.

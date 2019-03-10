@@ -209,7 +209,7 @@ public class OwnerResourceIntTest {
     @Test
     public void updateOwner() throws Exception {
         // Initialize the database
-        ownerService.save(owner);
+        ownerService.addOwner(owner);
 
         int databaseSizeBeforeUpdate = ownerRepository.findAll().size();
 
@@ -264,7 +264,7 @@ public class OwnerResourceIntTest {
     @Test
     public void deleteOwner() throws Exception {
         // Initialize the database
-        ownerService.save(owner);
+        ownerService.addOwner(owner);
 
         int databaseSizeBeforeDelete = ownerRepository.findAll().size();
 

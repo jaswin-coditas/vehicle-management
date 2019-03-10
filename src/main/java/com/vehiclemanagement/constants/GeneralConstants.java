@@ -12,4 +12,6 @@ public interface GeneralConstants {
 
     String ENTITY_NOT_FOUND_WITH_GIVEN_ID = "Entity not found for given id";
 
+    String OWNER_ID_REQUIRED = "Owner id is required";
+
 }

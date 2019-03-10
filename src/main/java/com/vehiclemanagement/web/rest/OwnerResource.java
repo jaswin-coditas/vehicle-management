@@ -124,6 +124,8 @@ public class OwnerResource {
             Page<Owner> ownerPage = ownerService.findAll(pageable);
             ownerPageDto.setCurrentPageData(ownerPage.getContent());
             ownerPageDto.setTotalCount(ownerPage.getTotalElements());
+            ownerPageDto.setPerPage(ownerPage.getSize());
+            ownerPageDto.setCurrentPageNo(ownerPage.getNumber());
             customResponseDTO.setData(ownerPageDto);
             customResponseDTO.setHttpStatus(HttpStatus.OK);
         } catch (Exception exception) {

@@ -1,5 +1,6 @@
 package com.vehiclemanagement.service;
 
+import com.vehiclemanagement.domain.Owner;
 import com.vehiclemanagement.domain.Vehicle;
 
 import org.springframework.data.domain.Page;
@@ -31,6 +32,8 @@ public interface VehicleService {
      */
     Page<Vehicle> getAllVechicles(Pageable pageable);
 
+
+    Page<Vehicle> getVehiclesByOwner(Pageable pageable, Owner owner);
 
     /**
      * Get the "id" vehicle.

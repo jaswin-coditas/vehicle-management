@@ -174,7 +174,7 @@ public class VehicleResourceIntTest {
     @Test
     public void updateVehicle() throws Exception {
         // Initialize the database
-        vehicleService.save(vehicle);
+        vehicleService.addVehicleDetails(vehicle);
 
         int databaseSizeBeforeUpdate = vehicleRepository.findAll().size();
 
@@ -219,7 +219,7 @@ public class VehicleResourceIntTest {
     @Test
     public void deleteVehicle() throws Exception {
         // Initialize the database
-        vehicleService.save(vehicle);
+        vehicleService.addVehicleDetails(vehicle);
 
         int databaseSizeBeforeDelete = vehicleRepository.findAll().size();
 

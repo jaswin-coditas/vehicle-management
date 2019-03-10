@@ -46,9 +46,6 @@ public class Owner implements Serializable {
     @Field("personal_email_two")
     private String personalEmailTwo;
 
-    @DBRef
-    @Field("vehicle")
-    private Set<Vehicle> vehicles = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
         return id;
@@ -162,30 +159,7 @@ public class Owner implements Serializable {
         this.personalEmailTwo = personalEmailTwo;
     }
 
-    public Set<Vehicle> getVehicles() {
-        return vehicles;
-    }
 
-    public Owner vehicles(Set<Vehicle> vehicles) {
-        this.vehicles = vehicles;
-        return this;
-    }
-
-    public Owner addVehicle(Vehicle vehicle) {
-        this.vehicles.add(vehicle);
-        vehicle.setOwner(this);
-        return this;
-    }
-
-    public Owner removeVehicle(Vehicle vehicle) {
-        this.vehicles.remove(vehicle);
-        vehicle.setOwner(null);
-        return this;
-    }
-
-    public void setVehicles(Set<Vehicle> vehicles) {
-        this.vehicles = vehicles;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

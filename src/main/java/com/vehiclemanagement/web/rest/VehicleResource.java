@@ -3,6 +3,7 @@ package com.vehiclemanagement.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.vehiclemanagement.constants.GeneralConstants;
 import com.vehiclemanagement.constants.MessageConstants;
+import com.vehiclemanagement.domain.Owner;
 import com.vehiclemanagement.domain.Vehicle;
 import com.vehiclemanagement.service.VehicleService;
 import com.vehiclemanagement.service.dto.CustomResponseDTO;
@@ -124,6 +125,8 @@ public class VehicleResource {
             Page<Vehicle> vehiclePage = vehicleService.getAllVechicles(pageable);
             vehiclePageDto.setCurrentPageData(vehiclePage.getContent());
             vehiclePageDto.setTotalCount(vehiclePage.getTotalElements());
+            vehiclePageDto.setPerPage(vehiclePage.getSize());
+            vehiclePageDto.setCurrentPageNo(vehiclePage.getNumber());
             customResponseDTO.setData(vehiclePageDto);
             customResponseDTO.setHttpStatus(HttpStatus.OK);
         } catch (Exception exception) {
@@ -134,6 +137,33 @@ public class VehicleResource {
         return new ResponseEntity<CustomResponseDTO>(customResponseDTO, customResponseDTO.getHttpStatus());
     }
 
+
+    @GetMapping("/vehiclesByOwnerId/{ownerId}")
+    @Timed
+    public ResponseEntity<CustomResponseDTO> getVehiclesByOwner(Pageable pageable, @PathVariable String ownerId) {
+        CustomResponseDTO customResponseDTO = new CustomResponseDTO();
+        PageDto<Vehicle> vehiclePageDto = new PageDto<Vehicle>();
+        try {
+            Owner owner = new Owner();
+            owner.setId(ownerId);
+            Page<Vehicle> vehiclePage = vehicleService.getVehiclesByOwner(pageable,owner);
+            vehiclePageDto.setCurrentPageData(vehiclePage.getContent());
+            vehiclePageDto.setTotalCount(vehiclePage.getTotalElements());
+            vehiclePageDto.setPerPage(vehiclePage.getSize());
+            vehiclePageDto.setCurrentPageNo(vehiclePage.getNumber());
+            customResponseDTO.setData(vehiclePageDto);
+            customResponseDTO.setHttpStatus(HttpStatus.OK);
+        }  catch(BadRequestAlertException badRequestAlertException) {
+            customResponseDTO.setSuccess(false);
+            customResponseDTO.setMessage(badRequestAlertException.getMessage());
+            customResponseDTO.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (Exception exception) {
+            customResponseDTO.setSuccess(false);
+            customResponseDTO.setMessage(MessageConstants.ERROR);
+            customResponseDTO.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<CustomResponseDTO>(customResponseDTO, customResponseDTO.getHttpStatus());
+    }
     /**
      * GET  /vehicles/:id : get the "id" vehicle.
      *
@@ -162,6 +192,9 @@ public class VehicleResource {
         }
         return new ResponseEntity<CustomResponseDTO>(customResponseDTO, customResponseDTO.getHttpStatus());
     }
+
+
+
 
     /**
      * DELETE  /vehicles/:id : delete the "id" vehicle.
